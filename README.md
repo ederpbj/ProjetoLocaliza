@@ -65,3 +65,38 @@ git::https://github.com/ederpbj/ProjetoLocaliza.git
 >Limpar cach
 
     npm start -- --reset-cache
+
+>Nova tentativa com maps comunit
+
+https://medium.com/@tadeumx1/utilizando-mapas-no-react-native-817c4f4de6f7
+
+
+    yarn add react-native-maps
+
+    react-native link
+
+>Alterar build
+
+No arquivo build.gradle que está localizado em android/app/build.gradle precisamos apagar essa a linha:
+
+    // Apagar essa linha
+    compile project(‘:react-native-maps’)
+
+    // Código correto
+    implementation(project(':react-native-maps'))
+
+
+android/build.gradle precisamos adicionar, a versão do Google Play Services e a versão do mapa que será utilizado.
+
+        buildscript {
+        ext {
+        buildToolsVersion = "27.0.3"
+        minSdkVersion = 16
+        compileSdkVersion = 27
+        targetSdkVersion = 26
+        supportLibVersion = "27.1.1"
+        // Adicionar essas linhas
+        googlePlayServicesVersion = "11.8.0"
+        androidMapsUtilsVersion = "0.5+"
+        }
+
